@@ -109,6 +109,11 @@
     .gallery button, .gallery button.wide { grid-column: span 1; grid-row: auto; }
     .gallery button.wide, .gallery button:not(.wide):last-child:nth-child(even) { grid-column: span 2; }
   }
+  /* Matched visited/all pairs, including narrow screens. */
+  #annotated-map .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #annotated-map .gallery button { grid-column: auto; grid-row: auto; aspect-ratio: auto; color: var(--muted); font: inherit; text-align: left; }
+  #annotated-map .gallery img { height: auto; aspect-ratio: 4 / 3; object-fit: contain; }
+  #annotated-map .gallery .caption { display: block; padding: 10px 12px; font-size: 14px; }
 </style>
 </head>
 <body>
@@ -201,9 +206,12 @@
       </div>
 
       <div class="gallery">
-        <button class="wide"><img src="img/map/full-screen-map-all.jpg" alt="전체 화면 지도 — 모든 표시" loading="lazy"></button>
-        <button><img src="img/map/full-screen-map-visited.jpg" alt="전체 화면 지도 — 방문한 방" loading="lazy"></button>
-        <button><img src="img/map/in-status-screen-map.jpg" alt="상태 화면 지도" loading="lazy"></button>
+        <button><img src="img/map/full_map_mansion_1f_visited.png" alt="전체 화면 지도 — 방문한 방 (Visited)" loading="lazy"><span class="caption" aria-hidden="true">전체 화면 지도 · 방문한 방 (Visited)</span></button>
+        <button><img src="img/map/full_map_mansion_1f_all.png" alt="전체 화면 지도 — 모든 방 (All)" loading="lazy"><span class="caption" aria-hidden="true">전체 화면 지도 · 모든 방 (All)</span></button>
+        <button><img src="img/map/full_map_mansion_2f_visited.png" alt="전체 화면 지도 — 방문한 방 (Visited)" loading="lazy"><span class="caption" aria-hidden="true">전체 화면 지도 · 방문한 방 (Visited)</span></button>
+        <button><img src="img/map/full_map_mansion_2f_all.png" alt="전체 화면 지도 — 모든 방 (All)" loading="lazy"><span class="caption" aria-hidden="true">전체 화면 지도 · 모든 방 (All)</span></button>
+        <button><img src="img/map/mini_map_mansion_2f_visited.png" alt="상태 화면 지도 — 방문한 방 (Visited)" loading="lazy"><span class="caption" aria-hidden="true">상태 화면 지도 · 방문한 방 (Visited)</span></button>
+        <button><img src="img/map/mini_map_mansion_2f_all.png" alt="상태 화면 지도 — 모든 방 (All)" loading="lazy"><span class="caption" aria-hidden="true">상태 화면 지도 · 모든 방 (All)</span></button>
       </div>
 
       <div class="features">
