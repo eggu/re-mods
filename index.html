@@ -54,7 +54,6 @@
   }
   .btn:hover { filter: brightness(1.1); }
   .btn svg { width: 18px; height: 18px; }
-  .meta { color: var(--muted); font-size: 13px; min-height: 1.2em; overflow-wrap: anywhere; text-align: right; }
 
   .gallery { margin-top: 30px; display: grid; gap: 12px; grid-template-columns: repeat(6, minmax(0, 1fr)); }
   .gallery button {
@@ -102,7 +101,6 @@
 
   @media (max-width: 720px) {
     .mod-head { grid-template-columns: minmax(0, 1fr); }
-    .meta { text-align: left; }
     .actions { align-items: stretch; }
     .btn { justify-content: center; }
     .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -131,8 +129,7 @@
 </header>
 
 <main>
-  <!-- Each mod is one <section class="mod">; data-repo drives the download button. -->
-  <section class="mod" id="korean-hd-translation" data-repo="eggu/resident-evil-korean-hd-translation">
+  <section class="mod" id="korean-hd-translation">
     <div class="wrap">
       <div class="mod-head">
         <div>
@@ -145,7 +142,6 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>
             <span>최신 버전 다운로드</span>
           </a>
-          <span class="meta"></span>
         </div>
       </div>
 
@@ -183,7 +179,7 @@
     </div>
   </section>
 
-  <section class="mod" id="re3-korean-hd" data-repo="eggu/resident-evil-3-korean-hd">
+  <section class="mod" id="re3-korean-hd">
     <div class="wrap">
       <div class="mod-head">
         <div>
@@ -196,7 +192,6 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>
             <span>최신 버전 다운로드</span>
           </a>
-          <span class="meta"></span>
         </div>
       </div>
       <div class="install">
@@ -224,7 +219,7 @@
     </div>
   </section>
 
-  <section class="mod" id="annotated-map" data-repo="eggu/resident-evil-annotated-map">
+  <section class="mod" id="annotated-map">
     <div class="wrap">
       <div class="mod-head">
         <div>
@@ -237,7 +232,6 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>
             <span>최신 버전 다운로드</span>
           </a>
-          <span class="meta"></span>
         </div>
       </div>
 
@@ -283,22 +277,6 @@
 <dialog id="viewer" aria-label="스크린샷 크게 보기"><img alt=""><p></p></dialog>
 
 <script>
-  // Download buttons: point at the latest release's ZIP and show its version and size (falls back to the release page).
-  document.querySelectorAll('section.mod[data-repo]').forEach(async (section) => {
-    const repo = section.dataset.repo;
-    const btn = section.querySelector('.btn'), meta = section.querySelector('.meta');
-    try {
-      const res = await fetch(`https://api.github.com/repos/${repo}/releases/latest`);
-      if (!res.ok) return;
-      const rel = await res.json();
-      const zip = (rel.assets || []).find((a) => a.name.endsWith('.zip'));
-      if (!zip) return;
-      btn.href = zip.browser_download_url;
-      btn.querySelector('span').textContent = `${rel.tag_name} 다운로드`;
-      meta.textContent = `${(zip.size / 1048576).toFixed(1)} MB`;
-    } catch (e) { /* keep the release-page link */ }
-  });
-
   // Screenshot viewer
   const viewer = document.getElementById('viewer');
   document.querySelectorAll('.gallery button').forEach((b) => b.addEventListener('click', () => {
