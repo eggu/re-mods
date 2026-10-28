@@ -110,10 +110,10 @@
     .gallery button.wide, .gallery button:not(.wide):last-child:nth-child(even) { grid-column: span 2; }
   }
   /* Matched visited/all pairs, including narrow screens. */
-  #annotated-map .gallery, #re2-annotated-map .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  #annotated-map .gallery button, #re2-annotated-map .gallery button { grid-column: auto; grid-row: auto; aspect-ratio: auto; color: var(--muted); font: inherit; text-align: left; }
-  #annotated-map .gallery img, #re2-annotated-map .gallery img { height: auto; aspect-ratio: 4 / 3; object-fit: contain; }
-  #annotated-map .gallery .caption, #re2-annotated-map .gallery .caption { display: block; padding: 10px 12px; font-size: 14px; }
+  #annotated-map .gallery, #re2-annotated-map .gallery, #re3-annotated-map .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #annotated-map .gallery button, #re2-annotated-map .gallery button, #re3-annotated-map .gallery button { grid-column: auto; grid-row: auto; aspect-ratio: auto; color: var(--muted); font: inherit; text-align: left; }
+  #annotated-map .gallery img, #re2-annotated-map .gallery img, #re3-annotated-map .gallery img { height: auto; aspect-ratio: 4 / 3; object-fit: contain; }
+  #annotated-map .gallery .caption, #re2-annotated-map .gallery .caption, #re3-annotated-map .gallery .caption { display: block; padding: 10px 12px; font-size: 14px; }
 </style>
 </head>
 <body>
@@ -329,6 +329,29 @@
           </div>
           <p class="summary">원작 바이오하자드 3의 지도에 방 이름과 아이템·열쇠·퍼즐·몬스터 위치를 표시하는 상세 지도 모드입니다. 한국어와 영어를 지원합니다.</p>
         </div>
+        <div class="actions">
+          <a class="btn" href="https://github.com/eggu/resident-evil-3-annotated-map">모드 소개와 설치 안내</a>
+        </div>
+      </div>
+      <p class="note">배포 ZIP은 준비 중입니다. 지금은 소스 저장소에서 직접 빌드할 수 있습니다.</p>
+      <div class="gallery">
+        <button><img src="img/re3-map/2-1-uptown-zoom-in-visited.png" alt="바이오하자드 3 지도 — 업타운 확대, 방문한 방" loading="lazy"><span class="caption" aria-hidden="true">확대 · 방문한 방</span></button>
+        <button><img src="img/re3-map/2-2-uptown-zoom-in-all.png" alt="바이오하자드 3 지도 — 업타운 확대, 모든 방" loading="lazy"><span class="caption" aria-hidden="true">확대 · 모든 방</span></button>
+        <button><img src="img/re3-map/3-1-uptown-zoom-out-visited.png" alt="바이오하자드 3 지도 — 업타운 축소, 방문한 방" loading="lazy"><span class="caption" aria-hidden="true">축소 · 방문한 방</span></button>
+        <button><img src="img/re3-map/3-2-uptown-zoom-out-all.png" alt="바이오하자드 3 지도 — 업타운 축소, 모든 방" loading="lazy"><span class="caption" aria-hidden="true">축소 · 모든 방</span></button>
+        <button><img src="img/re3-map/1.png" alt="바이오하자드 3 지도 — 업타운, 모든 방, 몬스터 켬" loading="lazy"><span class="caption" aria-hidden="true">모든 방 · 몬스터 켬</span></button>
+        <button><img src="img/re3-map/4.png" alt="바이오하자드 3 지도 — 업타운 창고 주변, 퍼즐과 몬스터" loading="lazy"><span class="caption" aria-hidden="true">퍼즐 · 몬스터 켬</span></button>
+      </div>
+      <div class="features">
+        <div class="feature"><h3>남은 아이템과 퍼즐</h3><p>주운 아이템, 열린 문, 완료한 퍼즐과 쓰러뜨린 몬스터는 지도에서 사라집니다.</p></div>
+        <div class="feature"><h3>퍼즐과 Live Selection</h3><p>주황색 <b>!</b>는 퍼즐, 보라색 <b>?</b>는 Live Selection(선택 이벤트)의 대략적인 위치입니다. 선택 결과는 알려주지 않습니다.</p></div>
+        <div class="feature"><h3>선택 가능한 몬스터 표시</h3><p>몬스터와 네메시스를 종류별 아이콘으로 표시합니다. 기본값은 끔이며 숫자 7로 켭니다.</p></div>
+        <div class="feature"><h3>표시 범위와 이름 조절</h3><p>숫자 8로 방문한 방 → 공개된 방 → 모든 방을 고르고, 이름 크기와 불투명도를 조절합니다. 모든 방은 스포일러를 포함합니다.</p></div>
+      </div>
+      <div class="links">
+        <a href="https://github.com/eggu/resident-evil-3-annotated-map#단축키">단축키</a>
+        <a href="https://github.com/eggu/resident-evil-3-annotated-map/blob/main/docs/wiki/README.md">위키</a>
+        <a href="https://github.com/eggu/resident-evil-3-annotated-map/blob/main/README.en.md">English</a>
       </div>
     </div>
   </section>
