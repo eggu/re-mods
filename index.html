@@ -34,13 +34,17 @@
   .eyebrow { color: var(--accent-2); font-weight: 600; letter-spacing: .08em; font-size: 13px; text-transform: uppercase; }
   h1 { font-size: clamp(28px, 4.5vw, 44px); line-height: 1.2; margin: 10px 0 14px; letter-spacing: -.01em; }
   .lead { color: var(--muted); max-width: 680px; margin: 0; }
-  nav.mods { display: grid; gap: 12px; margin-top: 26px; }
-  nav.mods .cat { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; }
-  nav.mods .cat-name { flex: 0 0 96px; color: var(--accent-2); font-size: 13px; font-weight: 600; letter-spacing: .04em; }
-  @media (max-width: 720px) { nav.mods .cat-name { flex-basis: 100%; } }
+  nav.mods { position: sticky; top: 0; z-index: 10; background: rgba(13,15,18,.92); backdrop-filter: blur(8px);
+             border-bottom: 1px solid var(--line); }
+  nav.mods .wrap { display: flex; align-items: center; gap: 8px 10px; padding-block: 10px; overflow-x: auto; scrollbar-width: none; }
+  nav.mods .wrap::-webkit-scrollbar { display: none; }
+  nav.mods .cat { display: flex; align-items: center; gap: 8px; flex: 0 0 auto; }
+  nav.mods .cat + .cat { margin-left: 14px; padding-left: 16px; border-left: 1px solid var(--line); }
+  nav.mods .cat-name { color: var(--accent-2); font-size: 13px; font-weight: 600; white-space: nowrap; }
+  section.mod { scroll-margin-top: 64px; }
   nav.mods a {
-    text-decoration: none; padding: 9px 16px; border: 1px solid var(--line); border-radius: 999px;
-    background: var(--panel); font-weight: 600; font-size: 15px;
+    text-decoration: none; padding: 6px 14px; border: 1px solid var(--line); border-radius: 999px; white-space: nowrap;
+    background: var(--panel); font-weight: 600; font-size: 14px;
   }
   nav.mods a:hover { border-color: var(--muted); }
 
@@ -125,24 +129,27 @@
     <div class="eyebrow">바이오하자드 · PC</div>
     <h1>바이오하자드 PC 모드</h1>
     <p class="lead">바이오하자드 1·3 PC판을 위한 비공식 한글 HD 번역 모드와 바이오하자드 0·1·HD 리마스터·2·3 상세 지도 모드입니다. 바이오하자드 1 한글 번역과 상세 지도는 함께 사용할 수 있습니다.</p>
-    <nav class="mods" aria-label="모드 목록">
-      <div class="cat"><span class="cat-name">한글 HD 번역</span>
-        <a href="#korean-hd-translation">바이오하자드 1</a>
-        <a href="#re3-korean-hd">바이오하자드 3</a>
-      </div>
-      <div class="cat"><span class="cat-name">상세 지도</span>
-        <a href="#re0-annotated-map">바이오하자드 0</a>
-        <a href="#annotated-map">바이오하자드 1</a>
-        <a href="#re1hd-annotated-map">바이오하자드 HD 리마스터</a>
-        <a href="#re2-annotated-map">바이오하자드 2</a>
-        <a href="#re3-annotated-map">바이오하자드 3</a>
-      </div>
-      <div class="cat"><span class="cat-name">편의 기능</span>
-        <a href="#re0-ui-speed-tweaks">바이오하자드 0 UI 속도 조절</a>
-      </div>
-    </nav>
   </div>
 </header>
+<nav class="mods" aria-label="모드 목록">
+  <div class="wrap">
+    <div class="cat"><span class="cat-name">한글 HD 번역</span>
+      <a href="#korean-hd-translation">바이오하자드 1</a>
+      <a href="#re3-korean-hd">바이오하자드 3</a>
+    </div>
+    <div class="cat"><span class="cat-name">상세 지도</span>
+      <a href="#re0-annotated-map">바이오하자드 0</a>
+      <a href="#annotated-map">바이오하자드 1</a>
+      <a href="#re1hd-annotated-map">바이오하자드 HD 리마스터</a>
+      <a href="#re2-annotated-map">바이오하자드 2</a>
+      <a href="#re3-annotated-map">바이오하자드 3</a>
+    </div>
+    <div class="cat"><span class="cat-name">편의 기능</span>
+      <a href="#re0-ui-speed-tweaks">바이오하자드 0 UI 속도 조절</a>
+    </div>
+  </div>
+</nav>
+
 
 <main>
   <section class="mod" id="korean-hd-translation">
